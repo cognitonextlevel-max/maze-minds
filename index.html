@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maze Minds — Where Brilliance Finds Its Path</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #09090b;
+  --surface: #131316;
+  --surface-2: #1a1a1f;
+  --text: #fafaf9;
+  --text-muted: #a1a1aa;
+  --coral: #ff4f38;
+  --coral-glow: rgba(255, 79, 56, 0.15);
+  --violet: #8b5cf6;
+  --cyan: #22d3ee;
+  --amber: #f59e0b;
+  --green: #34d399;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--coral); color: white; }
+
+/* ─── Animated Mesh Gradient ─── */
+.mesh-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.mesh-bg .orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.4;
+  animation: float 20s ease-in-out infinite;
+}
+
+.mesh-bg .orb-1 {
+  width: 600px; height: 600px;
+  background: var(--coral);
+  top: -10%; left: -5%;
+  animation-delay: 0s;
+}
+
+.mesh-bg .orb-2 {
+  width: 500px; height: 500px;
+  background: var(--violet);
+  top: 20%; right: -10%;
+  animation-delay: -7s;
+  animation-duration: 25s;
+}
+
+.mesh-bg .orb-3 {
+  width: 400px; height: 400px;
+  background: var(--cyan);
+  bottom: -5%; left: 30%;
+  animation-delay: -14s;
+  animation-duration: 22s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(60px, -40px) scale(1.1); }
+  66% { transform: translate(-40px, 30px) scale(0.95); }
+}
+
+/* ─── Navigation ─── */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 100;
+  padding: 0 48px; height: 80px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(9, 9, 11, 0.6);
+  backdrop-filter: blur(20px) saturate(1.4);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.logo {
+  display: flex; align-items: center; gap: 12px;
+  font-weight: 800; font-size: 1.25rem; letter-spacing: -0.03em;
+}
+
+.logo-icon {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--coral), var(--violet));
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 1rem; color: white;
+}
+
+.nav-links { display: flex; gap: 36px; list-style: none; }
+
+.nav-links a {
+  color: var(--text-muted); text-decoration: none;
+  font-size: 0.875rem; font-weight: 500;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--text); }
+
+.nav-cta {
+  padding: 10px 28px;
+  background: var(--coral);
+  color: white; border: none; border-radius: 100px;
+  font-family: inherit; font-weight: 600; font-size: 0.875rem;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s;
+}
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--coral-glow);
+}
+
+/* ─── Hero ─── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 140px 48px 80px;
+}
+
+.hero-content {
+  position: relative; z-index: 1;
+  max-width: 900px;
+}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 16px;
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 100px;
+  font-size: 0.8rem; font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+.hero-badge .dot {
+  width: 8px; height: 8px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+.hero h1 {
+  font-size: clamp(3.5rem, 8vw, 6.5rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin-bottom: 32px;
+}
+
+.hero h1 .gradient-text {
+  background: linear-gradient(135deg, var(--coral), var(--violet), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: shimmer 8s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 560px;
+  margin-bottom: 48px;
+}
+
+.hero-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+
+.btn-primary {
+  padding: 16px 40px;
+  background: var(--coral);
+  color: white; border: none; border-radius: 100px;
+  font-family: inherit; font-weight: 700; font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px var(--coral-glow);
+}
+
+.btn-ghost {
+  padding: 16px 32px;
+  background: transparent;
+  color: var(--text); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 100px;
+  font-family: inherit; font-weight: 600; font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn-ghost:hover {
+  border-color: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.04);
+}
+
+/* ─── Floating Stats (Hero Right Side) ─── */
+.hero-visual {
+  position: absolute;
+  right: 48px; top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  display: none;
+}
+
+@media(min-width: 1100px) {
+  .hero-visual { display: block; }
+}
+
+.stat-float {
+  position: relative;
+  width: 280px;
+  padding: 32px;
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 20px;
+  margin-bottom: 20px;
+  animation: bob 6s ease-in-out infinite;
+}
+
+.stat-float:nth-child(2) { animation-delay: -2s; margin-left: 60px; }
+.stat-float:nth-child(3) { animation-delay: -4s; margin-left: 20px; }
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.stat-number {
+  font-size: 2.5rem; font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 0.85rem; color: var(--text-muted); font-weight: 500;
+}
+
+/* ─── Features Section ─── */
+.features {
+  padding: 120px 48px;
+  position: relative;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--coral);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  max-width: 600px;
+}
+
+.section-desc {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 500px;
+  margin-bottom: 64px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2px;
+}
+
+.feature-card {
+  padding: 48px 40px;
+  background: var(--surface);
+  position: relative;
+  overflow: hidden;
+  transition: background 0.4s;
+  cursor: default;
+}
+
+.feature-card:hover { background: var(--surface-2); }
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--coral), transparent);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.feature-card:hover::before { opacity: 1; }
+
+.feature-icon {
+  width: 56px; height: 56px;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 28px;
+}
+
+.feature-icon.coral-bg { background: var(--coral-glow); }
+.feature-icon.violet-bg { background: rgba(139, 92, 246, 0.15); }
+.feature-icon.cyan-bg { background: rgba(34, 211, 238, 0.15); }
+.feature-icon.amber-bg { background: rgba(245, 158, 11, 0.15); }
+
+.feature-card h3 {
+  font-size: 1.25rem; font-weight: 700;
+  margin-bottom: 12px; letter-spacing: -0.01em;
+}
+
+.feature-card p {
+  font-size: 0.95rem; color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* ─── Social Proof (Marquee) ─── */
+.proof {
+  padding: 80px 0;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex; gap: 48px;
+  animation: scroll-left 30s linear infinite;
+  width: max-content;
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.testimonial-card {
+  flex-shrink: 0;
+  width: 400px;
+  padding: 36px;
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 16px;
+}
+
+.testimonial-card .stars {
+  color: var(--amber);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+}
+
+.testimonial-card .quote {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.testimonial-card .author {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.testimonial-card .author strong {
+  color: var(--text); font-weight: 600;
+}
+
+/* ─── CTA Section ─── */
+.cta-section {
+  padding: 160px 48px;
+  text-align: center;
+  position: relative;
+}
+
+.cta-section .mesh-bg .orb { opacity: 0.25; }
+
+.cta-section h2 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 24px;
+  position: relative; z-index: 1;
+}
+
+.cta-section p {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin-bottom: 48px;
+  position: relative; z-index: 1;
+}
+
+/* ─── Footer ─── */
+footer {
+  padding: 64px 48px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+footer .footer-left {
+  display: flex; align-items: center; gap: 12px;
+}
+footer .footer-left span {
+  font-weight: 700; font-size: 1.1rem; letter-spacing: -0.02em;
+}
+
+footer .footer-links {
+  display: flex; gap: 32px; list-style: none;
+}
+footer .footer-links a {
+  color: var(--text-muted); text-decoration: none;
+  font-size: 0.85rem; font-weight: 500;
+  transition: color 0.3s;
+}
+footer .footer-links a:hover { color: var(--text); }
+
+/* ─── Mobile ─── */
+@media(max-width: 768px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hero { padding: 120px 24px 60px; }
+  .features { padding: 80px 24px; }
+  .cta-section { padding: 100px 24px; }
+  footer { padding: 48px 24px; }
+  .feature-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <div class="logo">
+    <div class="logo-icon">M</div>
+    <span>Maze Minds</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#">Pathways</a></li>
+    <li><a href="#">Mentors</a></li>
+    <li><a href="#">Results</a></li>
+    <li><a href="#">Pricing</a></li>
+  </ul>
+  <button class="nav-cta">Get Started</button>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="mesh-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Enrolling for Summer 2026
+    </div>
+    <h1>
+      Every kid is<br>
+      <span class="gradient-text">brilliant.</span><br>
+      We prove it.
+    </h1>
+    <p>1-on-1 virtual mentorship that doesn't just help kids learn — it rewires how they think. For ages 6–14.</p>
+    <div class="hero-actions">
+      <button class="btn-primary">Book a Free Session</button>
+      <button class="btn-ghost">Watch the Story →</button>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="stat-float">
+      <div class="stat-number" style="color: var(--coral)">2,400+</div>
+      <div class="stat-label">Students mentored this year</div>
+    </div>
+    <div class="stat-float">
+      <div class="stat-number" style="color: var(--violet)">98%</div>
+      <div class="stat-label">Parents report grade improvement</div>
+    </div>
+    <div class="stat-float">
+      <div class="stat-number" style="color: var(--cyan)">4.9★</div>
+      <div class="stat-label">Average mentor rating</div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="features">
+  <div class="section-label">How It Works</div>
+  <h2 class="section-title">Not tutoring.<br>Mentorship, re-engineered.</h2>
+  <p class="section-desc">We paired the best educators with technology that adapts in real-time. The result? Kids who don't just pass — they lead.</p>
+
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="feature-icon coral-bg">🧠</div>
+      <h3>Adaptive Pathways</h3>
+      <p>Our system maps your child's unique learning style and builds a curriculum that evolves every session.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon violet-bg">🎯</div>
+      <h3>Vetted Mentors</h3>
+      <p>Every mentor passes a 6-stage vetting process. Only the top 3% of applicants make the cut.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon cyan-bg">📊</div>
+      <h3>Parent Dashboard</h3>
+      <p>Real-time progress tracking. Weekly reports. You see exactly where your child is growing — and why.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon amber-bg">⚡</div>
+      <h3>Session Replays</h3>
+      <p>Every session is recorded. Rewatch breakthroughs, share them with family, and track progress over time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Social Proof -->
+<section class="proof">
+  <div class="marquee-track">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="quote">"My daughter went from struggling with fractions to teaching her classmates. In six weeks."</p>
+      <p class="author"><strong>Maria S.</strong> · Parent, Austin TX</p>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="quote">"This isn't tutoring. My son's mentor became his role model. He actually looks forward to learning now."</p>
+      <p class="author"><strong>James T.</strong> · Parent, Brooklyn NY</p>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="quote">"The parent dashboard alone is worth it. I can see exactly what's happening and I never have to guess."</p>
+      <p class="author"><strong>Aisha K.</strong> · Parent, Dallas TX</p>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="quote">"Two grade levels ahead in math after one semester. We cancelled every other program."</p>
+      <p class="author"><strong>David L.</strong> · Parent, Chicago IL</p>
+    </div>
+    <!-- Duplicate for seamless loop -->
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="quote">"My daughter went from struggling with fractions to teaching her classmates. In six weeks."</p>
+      <p class="author"><strong>Maria S.</strong> · Parent, Austin TX</p>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="quote">"This isn't tutoring. My son's mentor became his role model. He actually looks forward to learning now."</p>
+      <p class="author"><strong>James T.</strong> · Parent, Brooklyn NY</p>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="quote">"The parent dashboard alone is worth it. I can see exactly what's happening and I never have to guess."</p>
+      <p class="author"><strong>Aisha K.</strong> · Parent, Dallas TX</p>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="quote">"Two grade levels ahead in math after one semester. We cancelled every other program."</p>
+      <p class="author"><strong>David L.</strong> · Parent, Chicago IL</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="mesh-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+  <h2>Your child's<br><span class="gradient-text">breakthrough</span><br>starts here.</h2>
+  <p>First session is free. No contracts. No commitments.</p>
+  <button class="btn-primary" style="position:relative;z-index:1;">Book a Free Session</button>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-left">
+    <div class="logo-icon" style="width:28px;height:28px;font-size:0.8rem;border-radius:8px;">M</div>
+    <span>Maze Minds</span>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#">Pathways</a></li>
+    <li><a href="#">Mentors</a></li>
+    <li><a href="#">Pricing</a></li>
+    <li><a href="#">Privacy</a></li>
+    <li><a href="#">Terms</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>

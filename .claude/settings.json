@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/demarkussday/Maze Mind /Maze Mind /**)",
+      "Read(//Users/demarkussday/Maze Mind /Maze Mind /components/layout/**)",
+      "Read(//Users/demarkussday/Maze Mind /Maze Mind /public/**)"
+    ]
+  }
+}
