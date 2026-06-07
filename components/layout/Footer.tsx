@@ -7,17 +7,16 @@ const footerLinks = [
   {
     title: "Pathways",
     links: [
-      { name: "Foundation (6–8)", href: "#pathways" },
-      { name: "Acceleration (9–11)", href: "#pathways" },
-      { name: "Mastery (12–14)", href: "#pathways" },
+      { name: "Foundation Pathway", href: "#pathways" },
+      { name: "Growth Pathway", href: "#pathways" },
+      { name: "Mastery Pathway", href: "#pathways" },
     ],
   },
   {
     title: "Company",
     links: [
       { name: "About", href: "#" },
-      { name: "Mentors", href: "#mentors" },
-      { name: "Careers", href: "#" },
+      { name: "Our Tutors", href: "#mentors" },
       { name: "Contact", href: "#" },
     ],
   },
@@ -42,19 +41,31 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-14">
           <div className="md:col-span-4">
             <Link href="/" className="inline-block mb-5">
-              <img
-                src="/brand/maza-minds-logo.png"
-                alt="Maze Minds Tutor"
-                width={220}
-                height={56}
-                className="h-14 w-auto object-contain mix-blend-screen"
-                style={{ filter: "brightness(1.5)" }}
-              />
+              <span className="inline-block rounded-2xl bg-white px-4 py-3 shadow-lg">
+                <img
+                  src="/images/brand/logo_full.png"
+                  alt="Maze Minds® Tutor — Connecting The Different Pathways of Learning"
+                  width={240}
+                  height={150}
+                  className="h-16 w-auto object-contain"
+                />
+              </span>
             </Link>
             <p className="text-sm text-white/65 leading-relaxed max-w-xs">
-              Connecting the different pathways. 1-on-1 virtual mentorship for
-              ages 6 to 14.
+              A brain-based virtual tutoring platform that combines personalized
+              instruction, active engagement, and the science of learning to help
+              students grow with confidence.
             </p>
+
+            <address className="not-italic mt-6 space-y-2 text-sm text-white/70">
+              <a href="tel:+18774827355" className="flex items-center gap-2 hover:text-white transition-colors">
+                <span aria-hidden>📞</span> (877) 482-7355
+              </a>
+              <p className="leading-relaxed">
+                1000 Ball Parkway, Suite 310<br />
+                Arlington, TX 76011
+              </p>
+            </address>
 
             <div className="flex items-center gap-2 mt-6">
               {[
@@ -104,17 +115,17 @@ export function Footer() {
               href="/book"
               className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-brand-red text-white text-sm font-semibold shadow-[0_8px_22px_-8px_rgba(230,57,70,0.6)] hover:bg-brand-coral transition-colors"
             >
-              Book Free Session
+              Book a Learning Snapshot
             </Link>
           </div>
         </div>
 
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-xs text-white/55">
-            © {new Date().getFullYear()} Maze Minds Tutor. All rights reserved.
+            © {new Date().getFullYear()} Maze Minds® Tutor. All rights reserved.
           </p>
           <p className="text-xs text-white/40">
-            Made with care for curious kids.
+            Built around how students learn best.
           </p>
         </div>
       </div>

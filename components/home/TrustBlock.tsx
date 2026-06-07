@@ -3,10 +3,10 @@
 import { motion } from "framer-motion";
 
 const metrics = [
-  { value: "100%", label: "Background-checked mentors", accent: "text-brand-sky" },
-  { value: "24hr", label: "Response time guarantee", accent: "text-brand-coral" },
-  { value: "4.9/5", label: "Parent satisfaction score", accent: "text-brand-red" },
-  { value: "$0", label: "To try your first session", accent: "text-brand-gold" },
+  { value: "100%", label: "Background-Checked Tutors", accent: "text-brand-sky" },
+  { value: "24hr", label: "Parent Communication", accent: "text-brand-coral" },
+  { value: "✓", label: "Personalized Learning Plans", accent: "text-brand-red" },
+  { value: "✓", label: "Functional-Level Support", accent: "text-brand-gold" },
 ];
 
 export function TrustBlock() {
@@ -29,8 +29,9 @@ export function TrustBlock() {
               <span className="text-brand-gold">total transparency.</span>
             </h2>
             <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-[48ch]">
-              Every session recorded. Every mentor vetted. Weekly reports
-              delivered to your inbox. You always know what is happening.
+              Every session includes a parent summary delivered within 24 hours.
+              You always know what was covered, how your child responded, and what
+              comes next.
             </p>
           </div>
 

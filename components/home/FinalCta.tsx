@@ -41,11 +41,21 @@ export function FinalCta() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display text-5xl md:text-7xl lg:text-[6rem] font-700 tracking-tight leading-[1.0] text-white mb-8 drop-shadow-xl"
+          className="font-display text-5xl md:text-7xl lg:text-[6rem] font-700 tracking-tight leading-[1.0] text-white mb-6 drop-shadow-xl"
         >
           Your child&apos;s next <br />
           <span className="text-white/90">breakthrough starts here.</span>
         </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="font-display text-2xl md:text-3xl font-700 text-brand-gold mb-8 tracking-tight"
+        >
+          Every Brain Can Get Stronger.
+        </motion.p>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -54,7 +64,7 @@ export function FinalCta() {
           transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           className="text-white/70 text-lg md:text-xl max-w-lg mx-auto mb-16 font-medium"
         >
-          First session free. No contracts. Cancel anytime. We believe in earning your trust every single week.
+          Personalized learning support built around how your child learns. No long-term contracts. We earn your trust every single week.
         </motion.p>
 
         <motion.div
@@ -69,7 +79,7 @@ export function FinalCta() {
               href="/book"
               className="inline-flex items-center justify-center px-12 py-6 rounded-full bg-white text-brand-navy font-bold text-lg md:text-xl shadow-[0_20px_50px_-10px_rgba(255,255,255,0.3)] transition-transform hover:scale-105 active:scale-95"
             >
-              Book a Free Session
+              Book a Learning Snapshot
             </Link>
           </MagneticWrapper>
         </motion.div>

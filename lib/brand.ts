@@ -15,3 +15,10 @@ export const Navigation = [
   { name: "For Parents", href: "/for-parents" },
   { name: "Pricing", href: "/pricing" },
 ];
+
+// ───────────────────────────────────────────────────────────────
+// LIVE SLOTS COUNTER  — edit the number below as you sign up clients.
+// It updates the "live slots left" banner on the homepage hero.
+// Example: change 15 → 14 → 12 → 9 as spots fill. Save the file to publish.
+// ───────────────────────────────────────────────────────────────
+export const LiveSlotsLeft = 15;

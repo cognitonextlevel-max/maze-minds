@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Book a Session | Maza Minds Tutor",
-  description: "Schedule your child's first Maza Minds tutoring session today.",
+  title: "Book a Session | Maze Minds Tutor",
+  description: "Schedule your child's first Maze Minds tutoring session today.",
 };
 
 export default function BookPage() {

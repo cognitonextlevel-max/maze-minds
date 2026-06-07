@@ -2,6 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { useUISound } from "./useUISound";
 
 export function MagneticWrapper({
   children,
@@ -14,6 +15,7 @@ export function MagneticWrapper({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const { playPop } = useUISound();
 
   const handleMouse = (e: React.MouseEvent<HTMLDivElement>) => {
     const { clientX, clientY } = e;
@@ -21,6 +23,10 @@ export function MagneticWrapper({
     const middleX = clientX - (left + width / 2);
     const middleY = clientY - (top + height / 2);
     setPosition({ x: middleX * magneticStrength, y: middleY * magneticStrength });
+  };
+
+  const handleMouseEnter = () => {
+    playPop();
   };
 
   const reset = () => {
@@ -31,6 +37,7 @@ export function MagneticWrapper({
   return (
     <motion.div
       ref={ref}
+      onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouse}
       onMouseLeave={reset}
       animate={{ x, y }}

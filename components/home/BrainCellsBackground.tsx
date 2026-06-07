@@ -17,23 +17,10 @@ export function BrainCellsBackground() {
 
   return (
     <div ref={ref} className="absolute inset-0 overflow-hidden pointer-events-none z-0 opacity-80 mix-blend-multiply">
-      {/* Heavy Glowing SVG Filter */}
-      <svg className="absolute w-0 h-0">
-        <defs>
-          <filter id="neon-glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
-            <feMerge>
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
-      </svg>
-
       <motion.svg
         viewBox="0 0 800 800"
         className="absolute w-[150%] h-[150%] top-[-20%] left-[-20%] text-brand-sky/40"
-        style={{ y: y1, rotate: rotate1, filter: "url(#neon-glow)" }}
+        style={{ y: y1, rotate: rotate1 }}
       >
         {/* Brain cell nodes */}
         <circle cx="200" cy="300" r="20" fill="currentColor" />
@@ -56,7 +43,7 @@ export function BrainCellsBackground() {
       <motion.svg
         viewBox="0 0 800 800"
         className="absolute w-[180%] h-[180%] top-[-10%] left-[-30%] text-brand-coral/30"
-        style={{ y: y2, rotate: rotate2, filter: "url(#neon-glow)" }}
+        style={{ y: y2, rotate: rotate2 }}
       >
         <circle cx="400" cy="400" r="40" fill="currentColor" />
         <circle cx="700" cy="200" r="25" fill="currentColor" />

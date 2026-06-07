@@ -2,7 +2,7 @@ import { TrustBlock } from "@/components/home/TrustBlock";
 import { ShieldCheck, LineChart, MessageCircle } from "lucide-react";
 
 export const metadata = {
-  title: "For Parents | Maza Minds Tutor",
+  title: "For Parents | Maze Minds Tutor",
   description: "Learn about our commitment to safety, progress reporting, and transparent pricing.",
 };
 
@@ -14,7 +14,7 @@ export default function ForParentsPage() {
           Peace of mind, built in.
         </h1>
         <p className="text-xl text-brand-navy/70 max-w-3xl mx-auto mb-16">
-          We built Maza Minds because we know what parents actually want: 
+          We built Maze Minds because we know what parents actually want: 
           results you can see, safety you can trust, and pricing that makes sense.
         </p>
       </div>

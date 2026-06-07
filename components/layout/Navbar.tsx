@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const navLinks = [
   { name: "Pathways", href: "#pathways" },
-  { name: "Mentors", href: "#mentors" },
+  { name: "Our Tutors", href: "#mentors" },
   { name: "How It Works", href: "#how" },
   { name: "Pricing", href: "/pricing" },
   { name: "For Parents", href: "/for-parents" },
@@ -23,21 +23,13 @@ export function Navbar() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 h-20 flex items-center justify-between gap-6">
         <Link href="/" className="flex items-center shrink-0">
           <motion.img
-            src="/brand/maza-minds-logo.png"
-            alt="Maze Minds Tutor"
+            src="/images/brand/logo_full.png"
+            alt="Maze Minds® Tutor — Connecting The Different Pathways of Learning"
             width={260}
             height={64}
-            className="h-14 w-auto object-contain"
-            animate={{ 
-              scale: [1, 1.02, 1],
-              opacity: [0.85, 1, 0.85],
-              filter: ["brightness(1) blur(0px)", "brightness(1.05) blur(0.2px)", "brightness(1) blur(0px)"]
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
+            className="h-12 md:h-16 w-auto object-contain"
+            animate={{ scale: [1, 1.015, 1] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           />
         </Link>
 
@@ -72,7 +64,7 @@ export function Navbar() {
             href="/book"
             className="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-brand-red text-white text-sm font-semibold shadow-[0_8px_22px_-8px_rgba(230,57,70,0.6)] hover:bg-brand-coral transition-colors"
           >
-            Book Free Session
+            Book a Learning Snapshot
           </Link>
         </div>
       </div>

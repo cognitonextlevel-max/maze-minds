@@ -1,7 +1,7 @@
 import { MentorsGrid } from "@/components/home/MentorsGrid";
 
 export const metadata = {
-  title: "Meet Our Mentors | Maza Minds Tutor",
+  title: "Meet Our Mentors | Maze Minds Tutor",
   description: "Browse our directory of vetted, world-class mentors ready to guide your child's learning adventure.",
 };
 
@@ -13,7 +13,7 @@ export default function MentorsPage() {
           The best guides for the journey
         </h1>
         <p className="text-xl text-brand-navy/70 max-w-3xl mx-auto">
-          Every Maza Minds mentor is an expert in their field and trained in our proprietary 
+          Every Maze Minds mentor is an expert in their field and trained in our proprietary 
           pathways methodology. We match your child with a mentor who fits their learning style.
         </p>
       </div>

@@ -1,8 +1,8 @@
 import { HowItWorks } from "@/components/home/HowItWorks";
 
 export const metadata = {
-  title: "How It Works | Maza Minds Tutor",
-  description: "See how Maza Minds Tutor works in three simple steps.",
+  title: "How It Works | Maze Minds Tutor",
+  description: "See how Maze Minds Tutor works in three simple steps.",
 };
 
 export default function HowItWorksPage() {

@@ -22,6 +22,27 @@ export const metadata: Metadata = {
   title: "Maze Minds | 1-on-1 Mentorship That Rewires How Kids Think",
   description:
     "Virtual 1-on-1 mentorship for ages 6-14. Vetted mentors, adaptive pathways, and real results parents can track weekly.",
+  openGraph: {
+    title: "Maze Minds | 1-on-1 Mentorship",
+    description: "Virtual 1-on-1 mentorship for ages 6-14. Vetted mentors, adaptive pathways, and real results parents can track weekly.",
+    url: "https://mazeminds.com",
+    siteName: "Maze Minds",
+    images: [
+      {
+        url: "https://mazeminds.com/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Maze Minds | 1-on-1 Mentorship",
+    description: "Virtual 1-on-1 mentorship for ages 6-14.",
+    images: ["https://mazeminds.com/images/og-image.jpg"],
+  },
 };
 
 export default function RootLayout({

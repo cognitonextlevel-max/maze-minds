@@ -45,6 +45,8 @@ export function Hero() {
       <FloatingDoodle className="absolute left-[44%] top-[10%] w-8 h-8 text-brand-red" delay={1.2}>
         <SparkDoodle />
       </FloatingDoodle>
+      
+      {/* Subtle Dot Clusters */}
       <DotCluster className="absolute left-[20%] bottom-[20%]" />
       <DotCluster className="absolute right-[28%] top-[22%]" />
 
@@ -77,7 +79,7 @@ export function Hero() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-red" />
               </span>
               <span className="text-sm font-semibold text-brand-navy">
-                Enrolling for Summer 2026
+                Brain-Based Virtual Tutoring
               </span>
             </motion.div>
 
@@ -88,8 +90,8 @@ export function Hero() {
               className="font-display text-5xl sm:text-[9vw] lg:text-[6.5vw] font-700 tracking-tight leading-[1] md:leading-[0.9] text-brand-navy"
             >
               <PretextBalancer as="span" className="inline-block">
-                Tutoring that{" "}
-                <span className="text-brand-red">rewires how kids think</span>
+                1-on-1 Virtual Reading &amp; Math Tutoring{" "}
+                <span className="text-brand-red">Built Around How Your Child Learns</span>
               </PretextBalancer>
             </motion.h1>
 
@@ -99,8 +101,9 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.25 }}
               className="mt-6 text-lg md:text-xl text-brand-navy/75 max-w-[54ch] leading-relaxed"
             >
-              1-on-1 virtual mentorship for ages 6–14. Vetted mentors, adaptive
-              pathways, and weekly progress parents can actually see.
+              A brain-based personalized learning company that combines academic
+              tutoring, cognitive skill development, and the science of learning to
+              help students grow with confidence.
             </motion.p>
 
             <motion.div
@@ -114,15 +117,15 @@ export function Hero() {
                   href="/book"
                   className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-brand-red text-white font-semibold text-base shadow-[0_10px_28px_-8px_rgba(230,57,70,0.55)] transition-all duration-300 hover:bg-brand-coral hover:-translate-y-[2px] active:scale-[0.98]"
                 >
-                  Book a Free Session
+                  Take the Free Learning Survey
                 </Link>
               </MagneticWrapper>
               <MagneticWrapper magneticStrength={0.15}>
                 <Link
-                  href="/how-it-works"
+                  href="/book"
                   className="inline-flex items-center justify-center px-8 py-4 rounded-full border-2 border-brand-navy/20 bg-white text-brand-navy font-semibold text-base transition-all duration-300 hover:border-brand-navy hover:bg-white"
                 >
-                  How It Works
+                  Book a Learning Snapshot
                 </Link>
               </MagneticWrapper>
             </motion.div>
@@ -131,11 +134,25 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="mt-14 flex flex-wrap gap-x-10 gap-y-6"
+              className="mt-14 flex flex-wrap gap-x-5 gap-y-3 max-w-[62ch]"
             >
-              <Stat value="2,400+" label="Families mentored" />
-              <Stat value="98.2%" label="Report grade gains" />
-              <Stat value="4.9★" label="Avg. mentor rating" />
+              {[
+                "Personalized Learning",
+                "Functional-Level Support",
+                "Grade-Level",
+                "Above Grade Level",
+                "GT Support",
+                "Brain-Based Strategies",
+                "1-on-1 Virtual Sessions",
+              ].map((item) => (
+                <span
+                  key={item}
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-navy/80"
+                >
+                  <span className="text-brand-red">✓</span>
+                  {item}
+                </span>
+              ))}
             </motion.div>
           </motion.div>
 
@@ -150,26 +167,33 @@ export function Hero() {
               transition={{ duration: 1.4, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="absolute inset-0 flex items-center justify-center p-4"
             >
-              {/* Heavy pill-shaped container for the video */}
-              <div className="relative w-full h-full rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white bg-brand-navy">
-                {/* Fallback pattern while video loads */}
-                <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent" />
-                
-                <video 
-                  autoPlay 
-                  loop 
-                  muted
-                  defaultMuted
-                  playsInline
-                  preload="auto"
-                  src="/videos/video_background.mp4"
-                  className="absolute inset-0 w-full h-full object-cover"
+              {/* Heavy pill-shaped container featuring a real Maze Minds student */}
+              <div className="relative w-full h-full rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white bg-gradient-to-br from-brand-sky/30 via-brand-cream to-white">
+                {/* Soft glow behind the subject */}
+                <div className="absolute inset-x-8 bottom-0 top-10 rounded-[2.5rem] bg-[radial-gradient(circle_at_50%_40%,_rgba(43,168,232,0.25),_transparent_70%)]" />
+
+                <img
+                  src="/images/brand/family.png"
+                  alt="A family learning together with Maze Minds Tutor"
+                  className="absolute inset-0 w-full h-full object-contain object-bottom p-4"
+                />
+
+                {/* Hand-drawn sticky note — Every Brain Can Get Stronger */}
+                <motion.div
+                  initial={{ opacity: 0, rotate: -10, y: 20 }}
+                  animate={{ opacity: 1, rotate: -6, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  className="absolute top-6 left-4 md:-left-6 w-44 bg-brand-gold text-brand-navy px-5 py-4 shadow-[0_14px_30px_-10px_rgba(27,42,78,0.45)] rotate-[-6deg]"
+                  style={{ fontFamily: "var(--font-display, inherit)" }}
                 >
-                  Your browser does not support the video tag.
-                </video>
-                
+                  <span className="block text-lg md:text-xl font-700 leading-tight">
+                    Every Brain Can Get Stronger
+                  </span>
+                  <span className="absolute -top-2 left-1/2 -translate-x-1/2 h-5 w-16 bg-white/50 rounded-sm rotate-2" aria-hidden />
+                </motion.div>
+
                 {/* Subtle inner shadow for depth */}
-                <div className="absolute inset-0 rounded-[2.5rem] shadow-[inset_0_0_40px_rgba(0,0,0,0.3)] pointer-events-none" />
+                <div className="absolute inset-0 rounded-[2.5rem] shadow-[inset_0_0_40px_rgba(0,0,0,0.12)] pointer-events-none" />
               </div>
             </motion.div>
           </motion.div>

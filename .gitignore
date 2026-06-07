@@ -5,3 +5,9 @@ node_modules/
 dist/
 build/
 *.log
+.vercel
+.DS_Store
+**/.DS_Store
+*.bak
+Start Maze Minds Site.command
+Stop Maze Minds Site.command

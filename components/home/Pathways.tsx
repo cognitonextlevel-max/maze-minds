@@ -5,39 +5,42 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const pathways = [
   {
-    level: "Foundation",
-    ages: "Ages 6–8",
+    level: "Foundation Pathway",
+    ages: "Building Core Learning Skills",
     description:
-      "Core reasoning skills. Moving past memorization into genuine comprehension and curiosity-driven exploration.",
+      "Strengthening foundational reading, math, attention, memory, processing, and learning confidence through engaging, brain-based instruction.",
     accent: "bg-brand-sky",
     chip: "text-brand-sky bg-brand-sky/10",
-    metric: "47.2%",
-    metricLabel: "faster concept retention",
-    image: "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?q=80&w=1000&auto=format&fit=crop",
+    highlightTitle: "Built on the science of learning",
+    highlightBody:
+      "Students learn best when instruction includes active engagement, repetition, feedback, and personalized support.",
+    image: "/images/virtual_class_kid_1_1776893403210.jpg",
     align: "mr-auto", // Left aligned
   },
   {
-    level: "Acceleration",
-    ages: "Ages 9–11",
+    level: "Growth Pathway",
+    ages: "Building Understanding & Independence",
     description:
-      "Deep analytical problem solving. Pattern recognition, multi-step logic, and building confidence in complexity.",
+      "Strengthening comprehension, reasoning, problem solving, and academic independence through personalized learning experiences and guided practice.",
     accent: "bg-brand-coral",
     chip: "text-brand-coral bg-brand-coral/10",
-    metric: "3.1×",
-    metricLabel: "engagement vs. classroom",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1000&auto=format&fit=crop",
+    highlightTitle: "",
+    highlightBody:
+      "Active learning experiences designed to help skills stick, transfer, and grow over time.",
+    image: "/images/virtual_class_kid_2_1776893425405.jpg",
     align: "ml-auto", // Right aligned
   },
   {
-    level: "Mastery",
-    ages: "Ages 12–14",
+    level: "Mastery Pathway",
+    ages: "Advanced Thinking & Application",
     description:
-      "Strategic thinking at scale. Preparing minds for advanced academics with real-world application projects.",
+      "Developing higher-level reasoning, executive functioning, strategy use, and independent academic application skills.",
     accent: "bg-brand-red",
     chip: "text-brand-red bg-brand-red/10",
-    metric: "92%",
-    metricLabel: "continue past first semester",
-    image: "https://images.unsplash.com/photo-1427088612971-d079145c1a53?q=80&w=1000&auto=format&fit=crop",
+    highlightTitle: "",
+    highlightBody:
+      "Every session combines personalized academic support, active engagement, and brain-based learning strategies designed around how students learn best.",
+    image: "/images/virtual_class_kid_3_1776893447194.jpg",
     align: "mr-auto", // Left aligned
   },
 ];
@@ -103,14 +106,14 @@ export function Pathways() {
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 relative z-10">
         <div className="flex flex-col items-center text-center mb-24 md:mb-32">
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-red mb-4 block">
-            Adaptive Curriculum
+            Personalized Learning Pathways
           </span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-700 tracking-tight leading-[1.05] text-brand-navy max-w-2xl">
-            Three tracks. <br />
-            <span className="text-brand-coral">One mission.</span>
+            Every Student Gets <br />
+            <span className="text-brand-coral">A Pathway That Fits.</span>
           </h2>
           <p className="text-brand-navy/70 text-base md:text-lg leading-relaxed max-w-xl mt-6">
-            Every pathway adapts in real time to your child&apos;s pace, strengths, and growth edges. Follow the journey below.
+            Students are supported based on their functional learning level, strengths, and support needs — not simply age or grade placement. We build forward at their pace, with their goals in mind.
           </p>
         </div>
 
@@ -142,13 +145,15 @@ export function Pathways() {
                     {path.description}
                   </p>
 
-                  <div className="mt-8 pt-8 border-t border-brand-navy/10 flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4">
-                    <span className="font-display text-4xl lg:text-5xl font-700 text-brand-navy tracking-tight">
-                      {path.metric}
-                    </span>
-                    <span className="text-sm text-brand-navy/60 font-semibold max-w-[120px] text-center md:text-left leading-snug">
-                      {path.metricLabel}
-                    </span>
+                  <div className="mt-8 pt-8 border-t border-brand-navy/10 text-center md:text-left">
+                    {path.highlightTitle && (
+                      <p className="font-display text-xl font-700 text-brand-navy tracking-tight mb-2">
+                        {path.highlightTitle}
+                      </p>
+                    )}
+                    <p className="text-[15px] text-brand-navy/70 font-medium leading-relaxed">
+                      {path.highlightBody}
+                    </p>
                   </div>
                 </div>
 
