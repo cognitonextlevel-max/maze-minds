@@ -14,7 +14,7 @@ export function Testimonials() {
       </div>
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-        <div className="rounded-[2.5rem] bg-brand-cream border border-brand-navy/5 px-8 py-16 md:py-24 text-center">
+        <div className="rounded-[2.5rem] bg-white border border-brand-navy/10 shadow-[0_20px_50px_-30px_rgba(27,42,78,0.25)] px-8 py-16 md:py-24 text-center">
           <p className="font-display text-2xl md:text-3xl font-700 text-brand-navy/80 max-w-2xl mx-auto leading-snug">
             Testimonials coming soon from our founding Maze Minds Tutor families.
           </p>

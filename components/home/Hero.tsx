@@ -28,7 +28,7 @@ export function Hero() {
   const rocketRotate = useTransform(scrollYProgress, [0, 1], [15, 35]);
 
   return (
-    <section ref={containerRef} className="relative isolate overflow-hidden bg-brand-cream pt-28 md:pt-32 pb-40">
+    <section ref={containerRef} className="relative isolate overflow-hidden bg-white pt-28 md:pt-32 pb-40">
       {/* Floating doodles */}
       <FloatingDoodle className="absolute left-[6%] top-[18%] w-16 h-16 text-brand-red" delay={0}>
         <RocketDoodle />

@@ -67,7 +67,7 @@ export function Pathways() {
   const pathProgress = useTransform(scrollYProgress, [0, 0.8], [0, 1]);
 
   return (
-    <section id="pathways" ref={containerRef} className="relative py-28 md:py-40 bg-brand-cream overflow-hidden">
+    <section id="pathways" ref={containerRef} className="relative py-28 md:py-40 bg-white overflow-hidden">
       {/* Background SVG Maze */}
       <div className="absolute inset-0 pointer-events-none flex justify-center z-0">
         <svg
@@ -125,7 +125,7 @@ export function Pathways() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
-              className={`group overflow-hidden relative p-8 md:p-12 rounded-[2.5rem] bg-white/70 backdrop-blur-2xl border border-white/60 shadow-[0_20px_50px_-20px_rgba(27,42,78,0.15)] transition-all duration-500 hover:-translate-y-[6px] hover:shadow-[0_40px_80px_-20px_rgba(27,42,78,0.25)] max-w-3xl ${path.align}`}
+              className={`group overflow-hidden relative p-8 md:p-12 rounded-[2.5rem] bg-white border border-brand-navy/10 shadow-[0_20px_50px_-20px_rgba(27,42,78,0.15)] transition-all duration-500 hover:-translate-y-[6px] hover:shadow-[0_40px_80px_-20px_rgba(27,42,78,0.25)] max-w-3xl ${path.align}`}
             >
               <div className="relative z-10 flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start">
                 <div className="flex-1 text-center md:text-left">

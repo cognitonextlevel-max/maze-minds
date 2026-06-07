@@ -52,7 +52,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${fredoka.variable} ${nunito.variable}`}>
-      <body className="font-sans antialiased bg-brand-cream text-brand-navy min-h-[100dvh] overflow-x-hidden">
+      <body className="font-sans antialiased bg-white text-brand-navy min-h-[100dvh] overflow-x-hidden">
         <CustomCursor />
         <SmoothScroll>
           <Navbar />
